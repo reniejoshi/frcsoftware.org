@@ -29,17 +29,22 @@ jobs:
               with:
                   fetch-depth: 0
 
+            - name: Setup Java
+              uses: actions/setup-java@v4
+              with:
+                  distribution: 'temurin'
+                  java-version: '21'
+
             - name: Configure Git Auth
               run: |
+                  # Set global git user for commits
+                  git config --global user.name "Automated Sync"
+                  git config --global user.email "noreply@frcsoftware.org"
+
                   # Configure git to use your PAT for all HTTPS connections to GitHub
                   git config --global url."https://x-access-token:${{ secrets.COPYBARA_PAT }}@github.com/".insteadOf "https://github.com/"
+            - name: Download Copybara
+              run: wget https://github.com/google/copybara/releases/download/v20260629/copybara_deploy.jar
 
-            - name: Run Copybara via Docker
-              run: |
-                  docker run --rm \
-                    --entrypoint bash \
-                    -v ${{ github.workspace }}:/usr/src/app \
-                    -w /usr/src/app \
-                    -v ~/.gitconfig:/root/.gitconfig \
-                    ghcr.io/olivr/copybara:latest \
-                    -c "copybara migrate copy.bara.sky ${{ matrix.workflow }}"
+            - name: Run Copybara
+              run: java -jar copybara_deploy.jar copy.bara.sky ${{ matrix.workflow }} --force --ignore-noop
