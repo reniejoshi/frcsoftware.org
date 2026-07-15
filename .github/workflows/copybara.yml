@@ -12,6 +12,7 @@ on:
 
 jobs:
     copybara:
+        if: github.ref == 'refs/heads/main' && github.repository == 'frcsoftware/frcsoftware.org'
         runs-on: ubuntu-latest
 
         strategy:
