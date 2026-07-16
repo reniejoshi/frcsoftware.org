@@ -98,10 +98,10 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
                     label: 'Stage 1',
                     collapsed: true,
                     items: [
-                        // {
-                        //     label: 'Stage 1 Introduction',
-                        //     slug: 'learning-course/stage-1a-commands/overview',
-                        // },
+                        {
+                            label: 'Stage 1 Introduction',
+                            slug: 'learning-course/stage-1/stage-1a/stage-overview',
+                        },
                         {
                             label: 'Stage 1A: TBD',
                             collapsed: true,
