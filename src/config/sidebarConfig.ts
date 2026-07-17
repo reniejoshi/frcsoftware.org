@@ -100,16 +100,16 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
                     items: [
                         {
                             label: 'Stage 1 Introduction',
-                            slug: 'learning-course/stage-1/stage-1a/stage-overview',
+                            slug: 'learning-course/stage-1/stage-overview',
                         },
                         {
-                            label: 'Stage 1A: TBD',
+                            label: 'Stage 1A',
                             collapsed: true,
                             items: [
-                                // {
-                                //     label: 'TBD',
-                                //     slug: 'stage-1a-commands/command-based-overview',
-                                // },
+                                {
+                                    label: 'Stage 1A Overview',
+                                    slug: 'learning-course/stage-1/stage-1a/stage-overview',
+                                },
                                 // {
                                 //     label: 'TBD',
                                 //     slug: 'stage-1a-commands/the-command-body',
