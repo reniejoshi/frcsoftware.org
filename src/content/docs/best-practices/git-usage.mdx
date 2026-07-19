@@ -7,23 +7,60 @@ description: Best practices for Git
 
 A commit is a saved state of your repository.
 You should make a commit every time you complete a task (e.g. `Add per-path auto choosers`, `Fix joystick inputs inversion`, `Tune chassis heading PID gains`).
+This helps keep track of when new code is added.
+When you add changes through smaller, focused commits, you can isolate when a bug is introduced and easily roll back to a working state
+Writing descriptive commit messages make it easy to see exactly what changed.
+While diffs can only show what changed in code, commit messages can also communicate the context about a change and explain the why.
+By convention, commit messages are concise, begin with a capital letter, don't use punctuation, and are in the imperative mood.
+Compare the following examples of good vs bad commit messages:
+
+| Good Commit Messages                                                                     | Bad Commit Messages                                                     |
+| :--------------------------------------------------------------------------------------- | :---------------------------------------------------------------------- |
+| Completes a single task                                                                  | Includes logic changes, formatting fixes, and refactors in one commit   |
+| Uses the imperative mood: "Refactor swerve drive logic"                                  | Past tense, lowercase, and punctuated: "refactored swerve drive logic." |
+| Specific and provides context: "Fix swerve drive limiter bug for reliable drive control" | Vague: "Fix bug" or "WIP"                                               |
 
 <Aside type="tip">
 Commit early and commit often.
 
 </Aside>
 
+To commit from the command line, first add the desired changes to the staging area using `git add <file>`.
+`git add .` adds all of your changes.
+Use `git commit -m "message"` to create a commit.
+It is a good practice to subsequently run `git push` to sync your changes to the remote repository.
+
+[GitHub Desktop](https://docs.github.com/en/desktop/managing-commits) presents a simpler way to manage commits, using checkboxes to select files to commit, a text box for commit messages, and a button to create a commit.
+
 ## Branches
 
+The `main` branch is where the working, tested version of the code lives during the build season.
 When multiple programmers are working on different changes, creating separate development branches can help prevent merge conflicts.
+For example, creating a seprate branch for vision code ensures that the code on the drivetrain branch isn't affected.
+Making branches for each competition helps isolate fixes and ensures that code is still reviewed before merging to `main`.
 
 To maintain a branch, you must stay up to date with `main`.
 
 - To merge: `git fetch` then `git merge origin/main`
 - To rebase: `git fetch` then `git rebase origin/main`
 
+You should also push to your branch frequently to back up your work and make it visible to other programmers using `git push.`
+
+## Repositories
+
+Creating a new repository for different major projects or new seasons is a helpful way to keep track of projects.
+Repositories should have names that represent the purpose of its code, like "2026-rebuilt", "2026-kitbot", and "2026-offseason-turret".
+
 ## Additional Information
 
 An in-depth tutorial can be found at the official [git website](https://git-scm.com/docs/gittutorial).
 
 A guide for correcting common mistakes can be found at the [git flight rules repository](https://github.com/k88hudson/git-flight-rules/blob/master/README.md).
+
+[GitHub Desktop](https://docs.github.com/en/desktop) is an alternative to command line or web browser interactions with GitHub.
+With GitHub Desktop, you can perform Git commands through a graphical user interface.
+It's a good resource for teams who are new to programming and may not have a lot of Git support or experience on the team, especially rookie teams.
+While Github Desktop offers it's own simplified ways of using Git and GitHub, the information mentioned in this section can still apply.
+
+[Source control in VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview) also offers a GUI for integrated source code management.
+It lets you run Git commands from the command palette.
