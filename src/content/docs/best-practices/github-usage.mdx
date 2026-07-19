@@ -1,0 +1,34 @@
+---
+title: GitHub Usage
+description: Best practices for GitHub project management and merge procedures
+---
+
+## Issues
+
+You can create issues in your repository to plan, discuss, and share tasks.
+
+Issue templates are helpful for providing guidance for opening issues and encourage students to specify the content of their issue.
+To create issue templates, create a `.github/ISSUE_TEMPLATE` folder and add Markdown files for different types of issues.
+
+## Pull Requests
+
+Pull requests are proposals to merge changes on a separate branch into the `main` branch of a repository.
+Pull requests help programmers review changes before merging them, catch bugs early, and maintain code quality.
+
+Pull request templates encourage students to provide context for their changes and offer checklists to enforce programming standards.
+To create a template, create a `.github/pull_request_template.md` file. The template could ask to include:
+- A description of changes made
+- A link to any issues this pull request closes
+- A checklist to verify code standards and successful builds
+
+To review a pull request, read the pull request title and description, verify that all CI checks passed, and open the **Files changed** tab to view the diff.
+You can comment on specific lines and suggest changes.
+
+## GitHub Projects
+GitHub Projects are a tool for project management that integrates with your issues and pull requests.
+You can create customized tables, boards, and roadmaps to plan and track changes.
+
+<Aside type="note">
+Read more about projects [here](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+
+</Aside>

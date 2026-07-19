@@ -1,0 +1,28 @@
+---
+title: Git Usage
+description: Best practices for Git
+---
+
+## Commits
+
+A commit is a saved state of your repository.
+You should make a commit every time you complete a task (e.g. `Add per-path auto choosers`, `Fix joystick inputs inversion`, `Tune chassis heading PID gains`).
+
+<Aside type="tip">
+Commit early and commit often.
+
+</Aside>
+
+## Branches
+
+When multiple programmers are working on different changes, creating separate development branches can help prevent merge conflicts.
+
+To maintain a branch, you must stay up to date with `main`.
+- To merge: `git fetch` then `git merge origin/main`
+- To rebase: `git fetch` then `git rebase origin/main`
+
+## Additional Information
+
+An in-depth tutorial can be found at the official [git website](https://git-scm.com/docs/gittutorial).
+
+A guide for correcting common mistakes can be found at the [git flight rules repository](https://github.com/k88hudson/git-flight-rules/blob/master/README.md).

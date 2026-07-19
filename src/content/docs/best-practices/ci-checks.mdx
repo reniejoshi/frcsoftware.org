@@ -1,0 +1,186 @@
+---
+title: CI Checks
+description: Best practices for CI Checks
+---
+
+CI checks are automated tests that run when code is pushed or a pull request is opened.
+They help ensure that your code builds, meets programming standards, and is formatted correctly before merging.
+You can create CI checks using [GitHub Actions](https://docs.github.com/en/actions/get-started/continuous-integration).
+
+## Build
+
+To verify that your robot code builds, create a GitHub Actions workflow file `.github/workflows/build.yml` with the following code:
+
+```
+name: Build
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew build
+```
+
+## Static Analysis Tools
+
+Static analysis tools help catch bugs, maintain programming standards, and improve code quality.
+
+
+To configure, add the [PMD](https://docs.gradle.org/current/userguide/pmd_plugin.html) and [Spotbugs](https://plugins.gradle.org/plugin/com.github.spotbugs) plugin in the `plugins {}` block of your `build.gradle` file.
+
+```
+plugins {
+   id "java"
+   id "edu.wpi.first.GradleRIO" version "2026.2.1"
+   id("pmd")
+   id("com.github.spotbugs") version "6.0.26"
+}
+```
+
+To run code quality checks, create a GitHub Actions workflow file `.github/workflows/code-quality.yml` with the following code:
+
+```
+name: Code Quality
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  warning-check:
+    name: Check Compiler Warnings
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Build with warnings as errors
+      run: ./gradlew build -PwarningsAsErrors=true
+
+  static-analysis:
+    name: Static Analysis (PMD & SpotBugs)
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Run PMD
+      run: ./gradlew pmdMain
+
+    - name: Run SpotBugs
+      run: ./gradlew spotbugsMain
+
+    - name: Upload analysis reports
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: static-analysis-reports
+        path: |
+          build/reports/pmd/
+          build/reports/spotbugs/
+```
+
+## Code Formatting
+
+[Spotless](https://github.com/diffplug/spotless) can also be run as a CI check to verify that code is formatted correctly.
+To add a code formatting CI check, create a GitHub Actions workflow file `.github/workflows/format.yml` with the following code:
+
+```
+name: Format
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  spotless:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - run: ./gradlew spotlessCheck
+```

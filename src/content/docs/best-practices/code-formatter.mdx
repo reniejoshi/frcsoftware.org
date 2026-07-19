@@ -1,0 +1,78 @@
+---
+title: Code Formatter
+description: Best practices for using a code formatter
+---
+
+Code formatters help ensure that the style of code written is consistent throughout the entire codebase.
+[Spotless](https://github.com/diffplug/spotless) is a Gradle plugin that can automatically format code with configurable options. 
+
+## Configuration
+
+In the `plugins {}` block of your `build.gradle` file, add the Spotless plugin.
+
+```
+plugins {
+   id "java"
+   id "edu.wpi.first.GradleRIO" version "2026.2.1"
+   id 'com.diffplug.spotless' version '6.25.0'
+}
+```
+
+Then add a required `spotless {}` block to configure Spotless options.
+This can be placed at the end of your `build.gradle`.
+
+```
+spotless {
+   java {
+      target fileTree('.') {
+            include '**/*.java'
+            exclude '**/build/**', '**/build-*/**', '**/bin/**'
+      }
+      toggleOffOn()
+      googleJavaFormat()
+      removeUnusedImports()
+      trimTrailingWhitespace()
+      endWithNewline()
+   }
+   groovyGradle {
+      target fileTree('.') {
+            include '**/*.gradle'
+            exclude '**/build/**', '**/build-*/**'
+      }
+      greclipse()
+      indentWithSpaces(4)
+      trimTrailingWhitespace()
+      endWithNewline()
+   }
+   format 'xml', {
+      target fileTree('.') {
+            include '**/*.xml'
+            exclude '**/build/**', '**/build-*/**'
+      }
+      eclipseWtp('xml')
+      trimTrailingWhitespace()
+      indentWithSpaces(2)
+      endWithNewline()
+   }
+   format 'misc', {
+      target fileTree('.') {
+            include '**/*.md', '**/.gitignore'
+            exclude '**/build/**', '**/build-*/**'
+      }
+      trimTrailingWhitespace()
+      indentWithSpaces(2)
+      endWithNewline()
+   }
+}
+```
+
+<Aside type="note">
+A full list of configurations is available on the [Spotless README](https://github.com/diffplug/spotless)
+
+</Aside>
+
+## Spotless Gradle Commands
+
+`./gradlew spotlessCheck` checks for formatting violations and fails if code isn't formatted correctly.
+
+`./gradlew spotlessApply` applies formatting rules and fixes the style of the code.

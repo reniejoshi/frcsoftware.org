@@ -72,6 +72,11 @@ export const glossaryTerms: GlossaryTerm[] = [
         definition:
             'A storage location for software packages, often used in version control systems like Git. Repositories are just folders that contain files and subfolders, and they can be hosted on platforms like GitHub to facilitate collaboration and version tracking',
     },
+    {
+        term: 'CI',
+        definition:
+            'Continuous Integration: A software development practice where developers frequently merge code changes into a shared repository, triggering automated builds and tests to ensures the codebase remains stable',
+    }
 ];
 
 /**
