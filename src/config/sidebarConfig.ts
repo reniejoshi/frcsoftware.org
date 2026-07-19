@@ -192,26 +192,26 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
             items: [
                 {
                     label: 'Overview',
-                    slug: 'best-practices/overview'
+                    slug: 'best-practices/overview',
                 },
                 {
                     label: 'Git Usage',
-                    slug: 'best-practices/git-usage'
+                    slug: 'best-practices/git-usage',
                 },
                 {
                     label: 'Code Formatter',
-                    slug: 'best-practices/code-formatter'
+                    slug: 'best-practices/code-formatter',
                 },
                 {
                     label: 'GitHub Usage',
-                    slug: 'best-practices/github-usage'
+                    slug: 'best-practices/github-usage',
                 },
                 {
                     label: 'CI Checks',
-                    slug: 'best-practices/ci-checks'
-                }
-            ]
-        }
+                    slug: 'best-practices/ci-checks',
+                },
+            ],
+        },
     ],
 
     // Other Resources section (maps to /resources in content)
