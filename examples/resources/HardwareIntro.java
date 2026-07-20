@@ -6,15 +6,15 @@
 public class HardwareIntro {
     // [intakeSubsystem]
     public class IntakeSubsystem extends SubsystemBase {
-    private TalonFX motor = new TalonFX(0);
+        private TalonFX motor = new TalonFX(0);
 
-    public void runIntake() {
-        motor.set(0.8);
-    }
+        public void runIntake() {
+            motor.set(0.8);
+        }
 
-    public void stopIntake() {
-        motor.set(0.0);
-    }
+        public void stopIntake() {
+            motor.set(0.0);
+        }
     }
     // [/intakeSubsystem]
 

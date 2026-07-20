@@ -1,0 +1,32 @@
+---
+title: Overview
+description: An overview of additional programming resources
+---
+
+import { CardGrid } from '@astrojs/starlight/components';
+import ContentCard from '../../../components/ContentCard.astro';
+import ContentTitleBar from '../../../components/ContentTitleBar.astro';
+
+<ContentTitleBar
+    label="Resources"
+    title="Enhance your programming workflow."
+    description="Resources to help improve your knowledge of terms and support your programming workflow."
+/>
+
+<CardGrid>
+
+<ContentCard
+    href="/resources/glossary/"
+    eyebrow="Reference"
+    title="Glossary"
+    description="A compiled list of acronyms, abbreviations, and definitions to help explain the language used across the site and community."
+/>
+
+<ContentCard
+    href="/resources/hardware-intro/"
+    eyebrow="Overview"
+    title="Hardware Intro"
+    description="An overview of common FRC hardware components for programmers."
+/>
+
+</CardGrid>
