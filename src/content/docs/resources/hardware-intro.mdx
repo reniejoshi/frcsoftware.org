@@ -1,0 +1,55 @@
+---
+title: Hardware Intro
+description: An introduction to hardware components for programmers
+codeRegionSources:
+    default: resources/HardwareIntro.java
+---
+
+## Motors
+
+Motor controllers are used throughout the robot in many mechanisms:
+
+- Intakes: Spin wheels to collect game pieces
+- Shooters: Spin flywheels to launch game pieces
+- Indexers: Move game pieces through the robot
+- Arms/Elevators: Raise and lower mechanisms (often with position control)
+- Climbers: Extend or retract climbing mechanisms
+
+In the command-based framework, motor controllers should be encapsulated as private member variables in your subsystem class so that hardware is not exposed to the rest of the robot code.
+Subsystem methods should handle motor control.
+
+```java #intakeSubsystem
+
+```
+
+CAN motor controllers are available through vendors such as CTR Electronics (Talon FX) and REV Robotics (SPARK MAX).
+
+![TalonFX motor controller](../../../../public/hardware-intro/talonfx-motor-controller.webp#w=30)
+![SPARK MAX motor controller](../../../../public/hardware-intro/spark-max-motor-controller.webp#w=20)
+
+## Encoders
+
+Encoders are a sensor for measuring rotational motion.
+They are reliable and less-prone to noise and interference than analog devices (such as potentiometers) because they produce digital signals.
+They can return the position and velocity of a mechanism.
+Three common types of encoders in FRC are shafted encoders, on-shaft encoders, and magnetic encoders that vary in how they are mounted to mechanisms.
+Many motor controllers also have integrated encoders.
+
+```java #turret
+
+```
+
+## Gyroscopes
+
+Gyroscopes (or "gyros") are angular rate sensor used to measure the rate of rotation around an axis.
+They are used to measure and control robot heading.
+Gyros measure rate rather than position.
+Position is inferred by integrating the rate to calculate the total change in angle.
+Gyro angle measurements are always relative to some arbitrary zero angle determined by the angle of the gyro when either the robot was turned on or a zeroing method was called.
+They can have accumulated errors (called “drift”) that increase in magnitude the longer the gyro is used.
+The amount of drift varies with the type of gyro.
+Three common types of gyros-used in FRC are single-axis gyros, three-axis gyros, and IMUs.
+
+```java #chassisSubsystem
+
+```
