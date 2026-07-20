@@ -199,12 +199,12 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
                     slug: 'best-practices/git-usage',
                 },
                 {
-                    label: 'Code Formatter',
-                    slug: 'best-practices/code-formatter',
-                },
-                {
                     label: 'GitHub Usage',
                     slug: 'best-practices/github-usage',
+                },
+                {
+                    label: 'Code Formatter',
+                    slug: 'best-practices/code-formatter',
                 },
                 {
                     label: 'CI Checks',

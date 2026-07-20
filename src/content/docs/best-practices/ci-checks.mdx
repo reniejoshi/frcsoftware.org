@@ -12,6 +12,12 @@ CI checks are automated tests that run when code is pushed or a pull request is 
 They help ensure that your code builds, meets programming standards, and is formatted correctly before merging.
 You can create CI checks using [GitHub Actions](https://docs.github.com/en/actions/get-started/continuous-integration).
 
+<Aside type="note">
+CI checks can only check for certain attributes of the code and cannot ensure that the code is functional or well-written.
+CI checks do not replace pull request reviews.
+
+</Aside>
+
 ## Build
 
 To verify that your robot code builds, create a GitHub Actions workflow file `.github/workflows/build.yml` with the following code:

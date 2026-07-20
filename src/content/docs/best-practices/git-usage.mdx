@@ -14,22 +14,18 @@ While diffs can only show what changed in code, commit messages can also communi
 By convention, commit messages are concise, begin with a capital letter, don't use punctuation, and are in the imperative mood.
 Compare the following examples of good vs bad commit messages:
 
-| Good Commit Messages                                                                     | Bad Commit Messages                                                     |
-| :--------------------------------------------------------------------------------------- | :---------------------------------------------------------------------- |
-| Completes a single task                                                                  | Includes logic changes, formatting fixes, and refactors in one commit   |
-| Uses the imperative mood: "Refactor swerve drive logic"                                  | Past tense, lowercase, and punctuated: "refactored swerve drive logic." |
-| Specific and provides context: "Fix swerve drive limiter bug for reliable drive control" | Vague: "Fix bug" or "WIP"                                               |
+| Good Commit Messages                                                                    | Bad Commit Messages                                                        |
+| :-------------------------------------------------------------------------------------- | :------------------------------------------------------------------------- |
+| Complete a single task                                                                  | Include logic changes, formatting fixes, and refactors in one commit       |
+| Use the imperative mood: "Refactor swerve drive logic"                                  | Are past tense, lowercase, or punctuated: "refactored swerve drive logic." |
+| Specific and provide context: "Fix swerve drive limiter bug for reliable drive control" | Are vague: "Fix bug" or "WIP"                                              |
 
 <Aside type="tip">
 Commit early and commit often.
 
 </Aside>
 
-To commit from the command line, first add the desired changes to the staging area using `git add <file>`.
-`git add .` adds all of your changes.
-Use `git commit -m "message"` to create a commit.
-It is a good practice to subsequently run `git push` to sync your changes to the remote repository.
-
+For advanced users, the command line offers more functionality and is what professionals tend to use.
 [GitHub Desktop](https://docs.github.com/en/desktop/managing-commits) presents a simpler way to manage commits, using checkboxes to select files to commit, a text box for commit messages, and a button to create a commit.
 
 ## Branches
@@ -44,7 +40,7 @@ To maintain a branch, you must stay up to date with `main`.
 - To merge: `git fetch` then `git merge origin/main`
 - To rebase: `git fetch` then `git rebase origin/main`
 
-You should also push to your branch frequently to back up your work and make it visible to other programmers using `git push.`
+It is a good practice to push to your branch frequently to back up your work in the remote repository and make it visible to other programmers using `git push.`
 
 ## Repositories
 
