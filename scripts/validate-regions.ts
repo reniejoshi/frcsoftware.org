@@ -16,10 +16,6 @@ const CODE_REGION_SOURCE_ENTRY_RE = /^\s+([\w-]+):\s*(.+?)\s*$/;
 
 const errors: string[] = [];
 
-function normalize(text: string): string {
-    return text.replace(/\r\n/g, '\n');
-}
-
 function parseCodeRegionSources(content: string): Map<string, string> {
     const sources = new Map<string, string>();
 
@@ -60,7 +56,7 @@ function walkMdx(dir: string) {
         } else if (entry.isDirectory()) {
             walkMdx(full);
         } else if (entry.name.endsWith('.mdx')) {
-            const content = normalize(readFileSync(full, 'utf-8'));
+            const content = readFileSync(full, 'utf-8');
             const codeRegionSources = parseCodeRegionSources(content);
 
             for (const line of content.split('\n')) {
@@ -104,7 +100,7 @@ function walkMdx(dir: string) {
 const definedRegions = new Map<string, Map<string, number>>();
 
 function validateSource(filePath: string) {
-    const content = normalize(readFileSync(filePath, 'utf-8'));
+    const content = readFileSync(filePath, 'utf-8');
     const lines = content.split('\n');
     const regions = new Map<string, number>();
     const stack: { name: string; lineNum: number }[] = [];
