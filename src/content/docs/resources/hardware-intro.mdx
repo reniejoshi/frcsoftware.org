@@ -18,7 +18,7 @@ Motor controllers are used throughout the robot in many mechanisms:
 In the command-based framework, motor controllers should be encapsulated as private member variables in your subsystem class so that hardware is not exposed to the rest of the robot code.
 Subsystem methods should handle motor control.
 
-```java #intakeSubsystem
+```java #intake
 
 ```
 
@@ -50,6 +50,6 @@ They can have accumulated errors (called “drift”) that increase in magnitude
 The amount of drift varies with the type of gyro.
 Three common types of gyros-used in FRC are single-axis gyros, three-axis gyros, and IMUs.
 
-```java #chassisSubsystem
+```java #drivetrain
 
 ```
