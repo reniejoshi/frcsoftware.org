@@ -22,23 +22,25 @@ CI checks do not replace pull request reviews.
 
 To verify that your robot code builds, create a GitHub Actions workflow file `.github/workflows/build.yml` with the following code:
 
-```yaml {build}#build
+```yaml {build}
 
 ```
 
-## Static Analysis Tools
+## Code Quality
 
+Static analysis is the process of analyzing code without executing it.
 Static analysis tools help catch bugs, maintain programming standards, and improve code quality.
+Using static analysis tools are considered a good practice because they offer automated ways of flagging bad programming practices such as unused code.
 
 To configure, add the [PMD](https://docs.gradle.org/current/userguide/pmd_plugin.html) and [Spotbugs](https://plugins.gradle.org/plugin/com.github.spotbugs) plugin in the `plugins {}` block of your `build.gradle` file.
 
-```groovy {staticAnalysis}#staticAnalysisPlugins
+```groovy {staticAnalysis}
 
 ```
 
 To run code quality checks, create a GitHub Actions workflow file `.github/workflows/code-quality.yml` with the following code:
 
-```yaml {codeQuality}#codeQuality
+```yaml {codeQuality}
 
 ```
 
@@ -47,6 +49,6 @@ To run code quality checks, create a GitHub Actions workflow file `.github/workf
 [Spotless](https://github.com/diffplug/spotless) can also be run as a CI check to verify that code is formatted correctly.
 To add a code formatting CI check, create a GitHub Actions workflow file `.github/workflows/format.yml` with the following code:
 
-```yaml {format}#format
+```yaml {format}
 
 ```

@@ -12,6 +12,7 @@ When you add changes through smaller, focused commits, you can isolate when a bu
 Writing descriptive commit messages make it easy to see exactly what changed.
 While diffs can only show what changed in code, commit messages can also communicate the context about a change and explain the why.
 By convention, commit messages are concise, begin with a capital letter, don't use punctuation, and are in the imperative mood.
+
 Compare the following examples of good vs bad commit messages:
 
 | Good Commit Messages                                                                    | Bad Commit Messages                                                        |
@@ -20,12 +21,14 @@ Compare the following examples of good vs bad commit messages:
 | Use the imperative mood: "Refactor swerve drive logic"                                  | Are past tense, lowercase, or punctuated: "refactored swerve drive logic." |
 | Specific and provide context: "Fix swerve drive limiter bug for reliable drive control" | Are vague: "Fix bug" or "WIP"                                              |
 
+See this specification on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to learn about standardized conventions for writing commit messages.
+
 <Aside type="tip">
 Commit early and commit often.
 
 </Aside>
 
-For advanced users, the command line offers more functionality and is what professionals tend to use.
+For advanced users, the command line offers more functionality.
 [GitHub Desktop](https://docs.github.com/en/desktop/managing-commits) presents a simpler way to manage commits, using checkboxes to select files to commit, a text box for commit messages, and a button to create a commit.
 
 ## Branches
@@ -36,6 +39,9 @@ For example, creating a seprate branch for vision code ensures that the code on 
 Making branches for each competition helps isolate fixes and ensures that code is still reviewed before merging to `main`.
 
 To maintain a branch, you must stay up to date with `main`.
+A merge and a rebase are both ways of integrating changes from one branch into another, but they do it differently.
+A merge combines branches by creating a new merge commit that connects their histories.
+A rebase rewrites the history of your branch sequentially and results in a clean, linear history.
 
 - To merge: `git fetch` then `git merge origin/main`
 - To rebase: `git fetch` then `git rebase origin/main`

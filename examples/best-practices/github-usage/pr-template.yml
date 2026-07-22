@@ -1,4 +1,3 @@
-# [prTemplate]
 ## Description
 
 Briefly describe the changes made in this PR.
@@ -23,7 +22,6 @@ Link to any related issues or PRs:
 ## Checklist
 
 - [ ] Code follows project coding standards
-- [ ] No new linting errors
-- [ ] Tests pass (`./gradlew test`)
+- [ ] No linting errors
 - [ ] Code builds successfully (`./gradlew build`)
-# [/prTemplate]
+- [ ] Tests pass (`./gradlew test`)
