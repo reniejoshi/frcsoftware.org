@@ -3,6 +3,7 @@ title: GitHub Usage
 description: Best practices for GitHub project management and merge procedures
 codeRegionSources:
     prTemplate: best-practices/github-usage/pr-template.yml
+    task: examples/best-practices/github-usage/task.yml
 ---
 
 ## Issues
@@ -12,6 +13,17 @@ You can create issues in your repository to plan, discuss, and share tasks.
 When opening an issue, you should add a title and description to clearly summarize the task.
 The Assignees feature is helpful for delegating tasks to programmers within your team.
 The Milestones feature can be used to group issues with specific deadlines and track progress.
+
+Issue templates are helpful for providing guidance for opening issues and encourage students to specify the content of their issue.
+To create issue templates, create a `.github/ISSUE_TEMPLATE` folder and add Markdown files for different types of issues.
+
+Here's an example issue template:
+
+```markdown {task}
+
+```
+
+See [Configuring issue templates for your repository](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) for a more in-depth guide to using issue templates.
 
 ## Pull Requests
 
