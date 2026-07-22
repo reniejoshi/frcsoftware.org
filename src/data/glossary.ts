@@ -82,6 +82,16 @@ export const glossaryTerms: GlossaryTerm[] = [
         definition:
             'GitHub is like Google Drive, but for code. It hosts git repositories and allows for improved collaboration on projects through pull requests and issues',
     },
+    {
+        term: 'Heading',
+        definition:
+            'The direction the robot is pointed, usually expressed as an angle in degrees',
+    },
+    {
+        term: 'Odometry',
+        definition:
+            'Using sensors on the robot to create an estimate of the pose of the robot on the field.',
+    },
 ];
 
 /**
