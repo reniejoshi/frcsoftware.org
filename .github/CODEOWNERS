@@ -1,1 +1,1 @@
-.github/workflows @frcsoftware/ci-reviewers
+.github/** package.json pnpm-workspace.yaml pnpm-lock.yaml coby.bara.sky @frcsoftware/infra
