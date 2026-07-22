@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 import org.wpilib.command3.Mechanism;
+import org.wpilib.hardware.discrete.DigitalInput;
 import org.wpilib.hardware.imu.OnboardIMU;
 import org.wpilib.hardware.imu.OnboardIMU.MountOrientation;
 import org.wpilib.math.geometry.Rotation2d;
@@ -37,7 +38,7 @@ public class HardwareIntro {
     // [/intake]
 
     // [turret]
-    public class Turret extends Mechanism {
+    public class Turret implements Mechanism {
         // Placeholder for magnetic encoder
         private final ExampleEncoder encoder = new ExampleEncoder(1, CANBus.systemcore(0));
 
@@ -47,6 +48,26 @@ public class HardwareIntro {
         }
     }
     // [/turret]
+
+    // [climber]
+    public class Climber implements Mechanism {
+        private final DigitalInput limitSwitch = new DigitalInput(2);
+
+        public boolean isLimitSwitchPressed() {
+            return !limitSwitch.get();
+        }
+    }
+    // [/climber]
+
+    // [indexer]
+    public class Indexer implements Mechanism {
+        private final DigitalInput beamBrake = new DigitalInput(3);
+
+        public boolean isBeanBakeTripped() {
+            return !beanBake.get();
+        }
+    }
+    // [/indexer]
 
     // [drivetrain]
     public class Drivetrain implements Mechanism {
