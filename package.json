@@ -13,13 +13,16 @@
         "lint:glossary": "tsx scripts/generate-glossary.ts --check",
         "prebuild": "tsx scripts/generate-glossary.ts",
         "predev": "tsx scripts/generate-glossary.ts",
-        "lint": "pnpm lint:eslint && pnpm lint:md && pnpm lint:regions && pnpm lint:glossary && pnpm typecheck",
+        "lint": "pnpm lint:eslint && pnpm lint:md && pnpm lint:regions && pnpm lint:glossary && pnpm typecheck && pnpm vale",
         "lint:eslint": "eslint .",
         "lint:md": "remark src/content/docs --ext mdx --frail",
         "lint:regions": "tsx scripts/validate-regions.ts",
+        "vale": "pnpm vale:setup && vale sync && vale src/content",
+        "vale:setup": "tsx scripts/setup-vale.ts",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
-        "typecheck": "astro check"
+        "typecheck": "astro check",
+        "prepare": "husky"
     },
     "dependencies": {
         "@astrojs/starlight": "^0.39.2",
@@ -35,6 +38,9 @@
         "astro-eslint-parser": "^1.4.0",
         "eslint": "^10.5.0",
         "eslint-plugin-astro": "^1.7.0",
+        "mdx2vast": "^0.3.1",
+        "husky": "^9.1.7",
+        "lint-staged": "^17.0.8",
         "prettier": "^3.8.4",
         "prettier-plugin-astro": "^0.14.1",
         "prettier-plugin-sentences-per-line": "^0.2.3",
@@ -46,5 +52,12 @@
         "typescript": "^6.0.3",
         "typescript-eslint": "^8.61.1",
         "vfile": "^6.0.3"
+    },
+    "lint-staged": {
+        "**/*": [
+            "pnpm format",
+            "pnpm lint"
+        ],
+        "examples/**/*.java": "sh -c 'cd examples && ./gradlew spotlessApply'"
     }
 }

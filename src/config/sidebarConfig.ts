@@ -33,7 +33,7 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
             items: [
                 { label: 'Overview', slug: 'learning-course' },
                 {
-                    label: 'Feature Guide',
+                    label: 'Website Feature Guide',
                     slug: 'learning-course/getting-started/website-feature-guide',
                 },
                 {
@@ -60,38 +60,32 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
                     items: [
                         {
                             label: 'Stage 0 Introduction',
-                            slug: 'learning-course/intro-to-java/stage-overview',
+                            slug: 'learning-course/stage0/stage-overview',
                         },
                         {
-                            label: 'Intro To Java',
-                            collapsed: true,
-                            items: [
-                                {
-                                    label: 'Java Fundamentals',
-                                    slug: 'learning-course/intro-to-java/java-fundamentals',
-                                },
-                                // {
-                                //     label: 'Operators',
-                                //     slug: 'learning-course/intro-to-java/operators',
-                                // },
-                                // {
-                                //     label: 'Conditionals',
-                                //     slug: 'learning-course/intro-to-java/conditionals',
-                                // },
-                                // {
-                                //     label: 'Loops',
-                                //     slug: 'learning-course/intro-to-java/loops',
-                                // },
-                                // {
-                                //     label: 'Objects',
-                                //     slug: 'learning-course/intro-to-java/objects',
-                                // },
-                                // {
-                                //     label: 'Methods',
-                                //     slug: 'learning-course/intro-to-java/methods',
-                                // },
-                            ],
+                            label: 'Java Fundamentals',
+                            slug: 'learning-course/stage0/java-fundamentals',
                         },
+                        {
+                            label: 'Operators',
+                            slug: 'learning-course/stage0/operators',
+                        },
+                        {
+                            label: 'Conditionals',
+                            slug: 'learning-course/stage0/conditionals',
+                        },
+                        // {
+                        //     label: 'Loops',
+                        //     slug: 'learning-course/stage0/loops',
+                        // },
+                        // {
+                        //     label: 'Objects',
+                        //     slug: 'learning-course/stage0/objects',
+                        // },
+                        // {
+                        //     label: 'Methods',
+                        //     slug: 'learning-course/stage0/methods',
+                        // },
                     ],
                 },
                 {
@@ -119,53 +113,44 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
                                 //     slug: 'stage-1a-commands/commands-and-mechanisms',
                                 // },
                             ],
+                            items: [],
                         },
                         {
                             label: 'Stage 1B: Commands',
                             collapsed: true,
                             items: [
-                                // {
-                                //     label: 'Stage 1B Introduction',
-                                //     slug: 'learning-course/stage1b/overview',
-                                // },
-                                // {
-                                //     label: '1B',
-                                //     collapsed: true,
-                                //     items: [
-                                //         {
-                                //             label: 'The Concepts',
-                                //             slug: 'stage-1b-commands/command-based-overview',
-                                //         },
-                                //         {
-                                //             label: 'The Body of a Command',
-                                //             slug: 'stage-1b-commands/the-command-body',
-                                //         },
-                                //         {
-                                //             label: 'Commands & Mechanisms, Pt. 1',
-                                //             slug: 'stage-1b-commands/commands-and-mechanisms',
-                                //         },
-                                //         {
-                                //             label: 'Triggers and Scheduling',
-                                //             slug: 'stage-1b-commands/triggers',
-                                //         },
-                                //         {
-                                //             label: 'Commands & Mechanisms, Pt. 2',
-                                //             slug: 'stage-1b-commands/commands-and-mechanisms-pt2',
-                                //         },
-                                //         {
-                                //             label: 'Exercise - Kitbot Rewrite, Pt. 1',
-                                //             slug: 'stage-1b-commands/command-based-kitbot',
-                                //         },
-                                //         {
-                                //             label: 'Suppliers in Command-Based',
-                                //             slug: 'stage-1b-commands/suppliers-in-command-based',
-                                //         },
-                                //         {
-                                //             label: 'Exercise - Kitbot Rewrite, Pt. 2',
-                                //             slug: 'stage-1b-commands/command-based-kitbot-pt2',
-                                //         },
-                                //     ],
-                                // },
+                                {
+                                    label: 'The Concepts',
+                                    slug: 'learning-course/stage1/stage1b/command-based-overview',
+                                },
+                                {
+                                    label: 'The Body of a Command',
+                                    slug: 'learning-course/stage1/stage1b/the-command-body',
+                                },
+                                {
+                                    label: 'Commands & Mechanisms, Pt. 1',
+                                    slug: 'learning-course/stage1/stage1b/commands-and-mechanisms',
+                                },
+                                {
+                                    label: 'Triggers and Scheduling',
+                                    slug: 'learning-course/stage1/stage1b/triggers',
+                                },
+                                {
+                                    label: 'Commands & Mechanisms, Pt. 2',
+                                    slug: 'learning-course/stage1/stage1b/commands-and-mechanisms-pt2',
+                                },
+                                {
+                                    label: 'Exercise - Kitbot Rewrite, Pt. 1',
+                                    slug: 'learning-course/stage1/stage1b/command-based-kitbot',
+                                },
+                                {
+                                    label: 'Suppliers in Command-Based',
+                                    slug: 'learning-course/stage1/stage1b/suppliers-in-command-based',
+                                },
+                                {
+                                    label: 'Exercise - Kitbot Rewrite, Pt. 2',
+                                    slug: 'learning-course/stage1/stage1b/command-based-kitbot-pt2',
+                                },
                             ],
                         },
                     ],
@@ -242,27 +227,23 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
             items: [
                 {
                     label: 'Website Feature Guide',
-                    slug: 'getting-started/website-feature-guide',
-                },
-                {
-                    label: 'Intro to Programming',
-                    slug: 'getting-started/intro-to-prog',
+                    slug: 'learning-course/getting-started/website-feature-guide',
                 },
                 {
                     label: 'Required Tools',
-                    slug: 'getting-started/required-tools',
+                    slug: 'learning-course/getting-started/required-tools',
                 },
                 {
                     label: 'VS Code Overview',
-                    slug: 'getting-started/vscode-overview',
+                    slug: 'learning-course/getting-started/vscode-overview',
                 },
                 {
                     label: 'Forking and Cloning',
-                    slug: 'getting-started/forking-and-cloning',
+                    slug: 'learning-course/getting-started/forking-and-cloning',
                 },
                 {
                     label: 'Intro to Java',
-                    slug: 'intro-to-java/stage-overview',
+                    slug: 'learning-course/stage0/stage-overview',
                 },
             ],
         },
@@ -275,11 +256,15 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
             items: [
                 {
                     label: 'Stage Overview',
-                    slug: 'intro-to-java/stage-overview',
+                    slug: 'learning-course/stage0/stage-overview',
                 },
                 {
                     label: 'Java fundamentals',
-                    slug: 'intro-to-java/java-fundamentals',
+                    slug: 'learning-course/stage0/java-fundamentals',
+                },
+                {
+                    label: 'operators',
+                    slug: 'learning-course/stage0/operators',
                 },
             ],
         },

@@ -12,6 +12,7 @@ on:
 
 jobs:
     copybara:
+        if: github.ref == 'refs/heads/main' && github.repository == 'frcsoftware/frcsoftware.org'
         runs-on: ubuntu-latest
 
         strategy:
@@ -19,14 +20,14 @@ jobs:
             fail-fast: false
             matrix:
                 workflow:
-                    - rev_solution
-                    - ctre_solution
-                    - rev_template
-                    - ctre_template
+                    - stage1a_rev_solution
+                    - stage1a_ctre_solution
+                    - stage1_rev_template
+                    - stage1_ctre_template
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
               with:
                   fetch-depth: 0
 
