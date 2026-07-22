@@ -113,7 +113,6 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
                                 //     slug: 'stage-1a-commands/commands-and-mechanisms',
                                 // },
                             ],
-                            items: [],
                         },
                         {
                             label: 'Stage 1B: Commands',
