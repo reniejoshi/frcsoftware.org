@@ -28,7 +28,7 @@ Commit early and commit often.
 
 </Aside>
 
-For advanced users, the command line offers more functionality.
+For advanced users, the command line offers more capabilities.
 [GitHub Desktop](https://docs.github.com/en/desktop/managing-commits) presents a simpler way to manage commits, using checkboxes to select files to commit, a text box for commit messages, and a button to create a commit.
 
 ## Branches
@@ -41,7 +41,10 @@ Making branches for each competition helps isolate fixes and ensures that code i
 To maintain a branch, you must stay up to date with `main`.
 A merge and a rebase are both ways of integrating changes from one branch into another, but they do it differently.
 A merge combines branches by creating a new merge commit that connects their histories.
+This is useful for shared branches where multiple developers are contributing simultaneously or merging a branch into `main`.
 A rebase rewrites the history of your branch sequentially and results in a clean, linear history.
+This is useful for a branch that only exists locally.
+Never rebase commits that have already been pushed to the remote repository, as this results in diverged commit histories.
 
 - To merge: `git fetch` then `git merge origin/main`
 - To rebase: `git fetch` then `git rebase origin/main`
