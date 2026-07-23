@@ -94,7 +94,7 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
                     items: [
                         {
                             label: 'Stage 1 Introduction',
-                            slug: 'learning-course/stage-1/stage-overview',
+                            slug: 'learning-course/stage1/stage-overview',
                         },
                         {
                             label: 'Stage 1A',
@@ -102,7 +102,7 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
                             items: [
                                 {
                                     label: 'Stage 1A Overview',
-                                    slug: 'learning-course/stage-1/stage-1a/stage-overview',
+                                    slug: 'learning-course/stage1/stage1a/stage-overview',
                                 },
                                 // {
                                 //     label: 'TBD',
