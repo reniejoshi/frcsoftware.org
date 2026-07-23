@@ -92,19 +92,36 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
                     label: 'Stage 1',
                     collapsed: true,
                     items: [
-                        // {
-                        //     label: 'Stage 1 Introduction',
-                        //     slug: 'learning-course/stage-1a-commands/overview',
-                        // },
                         {
-                            label: 'Stage 1A: TBD',
+                            label: 'Stage 1 Introduction',
+                            slug: 'learning-course/stage1/stage-overview',
+                        },
+                        {
+                            label: 'Stage 1A',
                             collapsed: true,
-                            items: [],
+                            items: [
+                                {
+                                    label: 'Stage 1A Introduction',
+                                    slug: 'learning-course/stage1/stage1a/stage-overview',
+                                },
+                                // {
+                                //     label: 'TBD',
+                                //     slug: 'stage-1a-commands/the-command-body',
+                                // },
+                                // {
+                                //     label: 'TBD',
+                                //     slug: 'stage-1a-commands/commands-and-mechanisms',
+                                // },
+                            ],
                         },
                         {
                             label: 'Stage 1B: Commands',
                             collapsed: true,
                             items: [
+                                {
+                                    label: 'Stage 1B Introduction',
+                                    slug: 'learning-course/stage1/stage1b/stage-overview',
+                                },
                                 {
                                     label: 'The Concepts',
                                     slug: 'learning-course/stage1/stage1b/command-based-overview',
