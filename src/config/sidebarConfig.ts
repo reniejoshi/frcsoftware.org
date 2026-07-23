@@ -119,6 +119,10 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
                             collapsed: true,
                             items: [
                                 {
+                                    label: 'Stage 1B Introduction',
+                                    slug: 'learning-course/stage1/stage1b/stage-overview',
+                                },
+                                {
                                     label: 'The Concepts',
                                     slug: 'learning-course/stage1/stage1b/command-based-overview',
                                 },
