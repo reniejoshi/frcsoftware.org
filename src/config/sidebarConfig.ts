@@ -179,6 +179,35 @@ export const sidebarSections: Record<string, SidebarSection[]> = {
         },
     ],
 
+    // Best Practices section
+    '/best-practices': [
+        {
+            label: 'Best Practices',
+            items: [
+                {
+                    label: 'Overview',
+                    slug: 'best-practices/overview',
+                },
+                {
+                    label: 'Git Usage',
+                    slug: 'best-practices/git-usage',
+                },
+                {
+                    label: 'GitHub Usage',
+                    slug: 'best-practices/github-usage',
+                },
+                {
+                    label: 'Code Formatter',
+                    slug: 'best-practices/code-formatter',
+                },
+                {
+                    label: 'CI Checks',
+                    slug: 'best-practices/ci-checks',
+                },
+            ],
+        },
+    ],
+
     // Other Resources section (maps to /resources in content)
     '/other-resources': [
         {
